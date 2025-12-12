@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Links</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #1a1a1a; /* Dark mode background */
+            color: white;
+            text-align: center;
+            padding-top: 50px;
+        }
+        img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%; /* Makes the image a circle */
+            border: 4px solid #00ffcc;
+            object-fit: cover;
+        }
+        h1 { margin-bottom: 10px; }
+        p { color: #bbbbbb; margin-bottom: 30px; }
+        
+        .link-btn {
+            display: block;
+            width: 250px;
+            background-color: #333;
+            color: white;
+            padding: 15px;
+            margin: 10px auto; /* Centers the buttons */
+            text-decoration: none;
+            border-radius: 25px;
+            transition: 0.3s;
+        }
+        .link-btn:hover {
+            background-color: #00ffcc; /* Glow color on hover */
+            color: black;
+            transform: scale(1.05); /* Slight zoom effect */
+        }
+    </style>
+</head>
+<body>
+
+    <img src="/static/profile.jpg" alt="My Profile Pic">
+
+    <h1>{{ name_in_html }}</h1>
+
+    <h3>My Coding Journey:</h3>
+<ul>
+    {% for skill in skills_list %}
+        <li style="color: #00ffcc; list-style: none;">★ {{ skill }}</li>
+    {% endfor %}
+</ul>
+
+    <button id="themeBtn" onclick="toggleTheme()" class="link-btn" style="cursor: pointer;">
+    ☀️ Switch to Light Mode
+</button>
+
+    <button id="themeBtn" onclick="myFunction()" class="link-btn" style="cursor: pointer;">
+    Show Alert ⚠️ 📢 🚨
+</button>
+    <a href="https://www.instagram.com/mr_munib_24/" class="link-btn">Instagram</a>
+    <a href="https://github.com" class="link-btn">My GitHub</a>
+    <a href="#" class="link-btn">My Resume / CV</a>
+<script>
+        function toggleTheme() {
+            // 1. Select the body of the page
+            var body = document.body;
+            
+            // 2. Select the button itself (so we can change its text)
+            var btn = document.getElementById("themeBtn");
+
+            // 3. Logic: specific commands to change CSS styles
+            if (body.style.backgroundColor === "white") {
+                // Switch to Dark Mode
+                body.style.backgroundColor = "#1a1a1a";
+                body.style.color = "white";
+                btn.innerText = "☀️ Switch to Light Mode";
+            } else {
+                // Switch to Light Mode
+                body.style.backgroundColor = "white";
+                body.style.color = "black";
+                btn.innerText = "🌙 Switch to Dark Mode";
+            }
+        }
+    </script>
+<script>
+function myFunction() {
+    alert("Hello! I am an alert box!!\nDanger !!!!!!.")
+}
+</script>
+</body>
+</body>
+</html>
